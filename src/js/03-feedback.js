@@ -28,6 +28,6 @@ formRef.addEventListener('submit', clearLocalStorage);
 function clearLocalStorage(e) {
   e.preventDefault();
   e.currentTarget.reset();
-  console.log(getDataParced);
+  console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
