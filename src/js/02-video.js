@@ -11,4 +11,10 @@ function timeCount(currentTime) {
   localStorage.setItem('videoplayer-current-time', JSON.stringify(seconds));
 }
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+const time = localStorage.getItem('videoplayer-current-time');
+const parsedTime = JSON.parse(time);
+
+if (!time) {
+  return;
+}
+player.setCurrentTime(parsedTime);

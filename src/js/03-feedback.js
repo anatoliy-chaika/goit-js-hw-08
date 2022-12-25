@@ -14,10 +14,10 @@ function touchInput(e) {
 }
 
 const data = localStorage.getItem(LOCALSTORAGE_KEY);
+const dataParced = JSON.parse(data);
 
 if (data !== null) {
   function updateFormValue() {
-    const dataParced = JSON.parse(data);
     formRef.elements.email.value = dataParced.email;
     formRef.elements.message.value = dataParced.message;
   }
@@ -28,7 +28,6 @@ formRef.addEventListener('submit', clearLocalStorage);
 function clearLocalStorage(e) {
   e.preventDefault();
   e.currentTarget.reset();
-  console.log(localStorage.getItem(LOCALSTORAGE_KEY));
-  // console.log(JSON.parse(data));
+  console.log(dataParced);
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
