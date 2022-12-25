@@ -13,13 +13,13 @@ function touchInput(e) {
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(dataArray));
 }
 
-const data = localStorage.getItem(LOCALSTORAGE_KEY);
-const dataParced = JSON.parse(data);
+const getData = localStorage.getItem(LOCALSTORAGE_KEY);
+const getDataParced = JSON.parse(getData);
 
-if (data !== null) {
+if (getData !== null) {
   function updateFormValue() {
-    formRef.elements.email.value = dataParced.email;
-    formRef.elements.message.value = dataParced.message;
+    formRef.elements.email.value = getDataParced.email;
+    formRef.elements.message.value = getDataParced.message;
   }
   updateFormValue();
 }
@@ -28,6 +28,6 @@ formRef.addEventListener('submit', clearLocalStorage);
 function clearLocalStorage(e) {
   e.preventDefault();
   e.currentTarget.reset();
-  console.log(dataParced);
+  console.log(getDataParced);
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
